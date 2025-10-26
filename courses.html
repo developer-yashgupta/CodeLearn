@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - CodeLearn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>CodeLearn</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link active">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in">Choose Your Learning Path</h1>
+            <p class="page-subtitle fade-in">Master web development with our comprehensive courses designed for university students.</p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="courses-grid">
+                <!-- HTML Course -->
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <div class="course-icon">🏗️</div>
+                        <div class="course-badge">Beginner</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">HTML Fundamentals</h3>
+                        <p class="course-description">Learn the building blocks of web pages. Master HTML tags, elements, attributes, forms, and semantic structure.</p>
+                        
+                        <div class="course-stats">
+                            <div class="stat">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">2-3</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="html-progress">0%</span>
+                                <span class="stat-label">Complete</span>
+                            </div>
+                        </div>
+
+                        <div class="course-topics">
+                            <h4>What you'll learn:</h4>
+                            <ul>
+                                <li>HTML Tags and Elements</li>
+                                <li>Text Formatting and Structure</li>
+                                <li>Links, Images, and Media</li>
+                                <li>Forms and Input Elements</li>
+                                <li>Semantic HTML5 Elements</li>
+                            </ul>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="html-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="html-course.html" class="btn btn-primary course-btn">Start HTML Course</a>
+                    </div>
+                </div>
+
+                <!-- CSS Course -->
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <div class="course-icon">🎨</div>
+                        <div class="course-badge">Intermediate</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">CSS Styling & Layout</h3>
+                        <p class="course-description">Style your websites with colors, layouts, animations, and responsive design techniques.</p>
+                        
+                        <div class="course-stats">
+                            <div class="stat">
+                                <span class="stat-number">10</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">3-4</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="css-progress">0%</span>
+                                <span class="stat-label">Complete</span>
+                            </div>
+                        </div>
+
+                        <div class="course-topics">
+                            <h4>What you'll learn:</h4>
+                            <ul>
+                                <li>CSS Selectors and Properties</li>
+                                <li>Box Model and Layout</li>
+                                <li>Flexbox and Grid</li>
+                                <li>Responsive Design</li>
+                                <li>Animations and Transitions</li>
+                            </ul>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="css-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="css-course.html" class="btn btn-primary course-btn">Start CSS Course</a>
+                    </div>
+                </div>
+
+                <!-- JavaScript Course -->
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <div class="course-icon">⚡</div>
+                        <div class="course-badge">Advanced</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">JavaScript Interactivity</h3>
+                        <p class="course-description">Add interactivity and dynamic behavior to your websites with modern JavaScript programming.</p>
+                        
+                        <div class="course-stats">
+                            <div class="stat">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">Lessons</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4-5</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="js-progress">0%</span>
+                                <span class="stat-label">Complete</span>
+                            </div>
+                        </div>
+
+                        <div class="course-topics">
+                            <h4>What you'll learn:</h4>
+                            <ul>
+                                <li>Variables and Data Types</li>
+                                <li>Functions and Control Flow</li>
+                                <li>DOM Manipulation</li>
+                                <li>Event Handling</li>
+                                <li>Mini Project: To-Do App</li>
+                            </ul>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="js-progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="js-course.html" class="btn btn-primary course-btn">Start JS Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Path -->
+            <div class="learning-path fade-in">
+                <h2>Recommended Learning Path</h2>
+                <div class="path-steps">
+                    <div class="path-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Start with HTML</h3>
+                            <p>Build the foundation with HTML structure and elements</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">→</div>
+                    <div class="path-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Style with CSS</h3>
+                            <p>Make your pages beautiful with CSS styling and layout</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">→</div>
+                    <div class="path-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Add JavaScript</h3>
+                            <p>Bring interactivity and dynamic behavior to your sites</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeLearn</h3>
+                    <p>Your first step into frontend development 🚀</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="quiz.html">Quiz</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Technologies</h4>
+                    <ul>
+                        <li><a href="html-course.html">HTML</a></li>
+                        <li><a href="css-course.html">CSS</a></li>
+                        <li><a href="js-course.html">JavaScript</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeLearn. Made with ❤️ for students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Update progress displays
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set total lessons for each course
+            window.progressTracker.setCourseTotalLessons('html', 8);
+            window.progressTracker.setCourseTotalLessons('css', 10);
+            window.progressTracker.setCourseTotalLessons('js', 12);
+
+            // Update progress displays
+            const htmlProgress = window.progressTracker.getProgressPercentage('html');
+            const cssProgress = window.progressTracker.getProgressPercentage('css');
+            const jsProgress = window.progressTracker.getProgressPercentage('js');
+
+            document.getElementById('html-progress').textContent = htmlProgress + '%';
+            document.getElementById('css-progress').textContent = cssProgress + '%';
+            document.getElementById('js-progress').textContent = jsProgress + '%';
+
+            document.getElementById('html-progress-bar').style.width = htmlProgress + '%';
+            document.getElementById('css-progress-bar').style.width = cssProgress + '%';
+            document.getElementById('js-progress-bar').style.width = jsProgress + '%';
+        });
+    </script>
+</body>
+</html>

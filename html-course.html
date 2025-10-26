@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Course - CodeLearn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>CodeLearn</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Layout -->
+    <div class="course-layout">
+        <!-- Sidebar -->
+        <aside class="course-sidebar">
+            <div class="sidebar-header">
+                <h3>🏗️ HTML Course</h3>
+                <div class="course-progress">
+                    <div class="progress-text">
+                        <span id="completed-lessons">0</span> of <span id="total-lessons">8</span> completed
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="sidebar-progress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <ul class="lesson-list">
+                    <li class="lesson-item active" data-lesson="1">
+                        <span class="lesson-number">1</span>
+                        <span class="lesson-title">Introduction to HTML</span>
+                        <span class="lesson-status">✓</span>
+                    </li>
+                    <li class="lesson-item" data-lesson="2">
+                        <span class="lesson-number">2</span>
+                        <span class="lesson-title">HTML Tags & Elements</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="3">
+                        <span class="lesson-number">3</span>
+                        <span class="lesson-title">Text Formatting</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="4">
+                        <span class="lesson-number">4</span>
+                        <span class="lesson-title">Links & Navigation</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="5">
+                        <span class="lesson-number">5</span>
+                        <span class="lesson-title">Images & Media</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="6">
+                        <span class="lesson-number">6</span>
+                        <span class="lesson-title">Lists & Tables</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="7">
+                        <span class="lesson-number">7</span>
+                        <span class="lesson-title">Forms & Input</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="8">
+                        <span class="lesson-number">8</span>
+                        <span class="lesson-title">Semantic HTML5</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="course-main">
+            <div class="lesson-content">
+                <div class="lesson-header">
+                    <h1 id="lesson-title">Introduction to HTML</h1>
+                    <div class="lesson-meta">
+                        <span class="lesson-duration">⏱️ 15 min</span>
+                        <span class="lesson-difficulty">📚 Beginner</span>
+                    </div>
+                </div>
+
+                <div class="lesson-body" id="lesson-body">
+                    <!-- Lesson content will be loaded here -->
+                </div>
+
+                <!-- Code Editor Section -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3>Try it yourself:</h3>
+                        <button class="btn btn-primary" id="run-code">Run Code</button>
+                    </div>
+
+                    <div class="code-editor-container">
+                        <div class="code-editor">
+                            <textarea id="code-input" placeholder="Write your HTML code here..."></textarea>
+                        </div>
+
+                        <div class="code-output">
+                            <div class="output-header">
+                                <h4>Output:</h4>
+                            </div>
+                            <iframe id="output-frame" sandbox="allow-same-origin allow-scripts"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <button class="btn btn-secondary" id="prev-lesson" disabled>← Previous</button>
+                    <button class="btn btn-primary" id="complete-lesson">Mark as Complete</button>
+                    <button class="btn btn-primary" id="next-lesson">Next Lesson →</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/editor.js"></script>
+    <script>
+        // HTML Course specific data - using simple string concatenation to avoid template literal issues
+        const htmlLessons = {};
+
+        // Lesson 1: Introduction to HTML
+        htmlLessons[1] = {
+            title: "Introduction to HTML",
+            duration: "15 min",
+            difficulty: "Beginner",
+            content: '<div class="lesson-section">' +
+                '<h2>What is HTML?</h2>' +
+                '<p>HTML (HyperText Markup Language) is the standard markup language for creating web pages.</p>' +
+                '<h3>Key Concepts:</h3>' +
+                '<ul>' +
+                '<li><strong>Elements:</strong> Building blocks of HTML pages</li>' +
+                '<li><strong>Tags:</strong> Keywords enclosed in angle brackets</li>' +
+                '<li><strong>Attributes:</strong> Additional information about elements</li>' +
+                '<li><strong>Content:</strong> Text and media between opening and closing tags</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>My First HTML Page</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n    <p>This is my first HTML page.</p>\n</body>\n</html>'
+        };
+
+        // Lesson 2: HTML Tags & Elements
+        htmlLessons[2] = {
+            title: "HTML Tags & Elements",
+            duration: "20 min",
+            difficulty: "Beginner",
+            content: '<div class="lesson-section">' +
+                '<h2>Understanding HTML Tags</h2>' +
+                '<p>HTML tags are keywords enclosed in angle brackets. Most tags come in pairs.</p>' +
+                '<h3>Common HTML Tags:</h3>' +
+                '<ul>' +
+                '<li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> - Headings</li>' +
+                '<li><code>&lt;p&gt;</code> - Paragraphs</li>' +
+                '<li><code>&lt;div&gt;</code> - Division/container</li>' +
+                '<li><code>&lt;span&gt;</code> - Inline container</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>HTML Tags</title>\n</head>\n<body>\n    <h1>Main Heading</h1>\n    <h2>Subheading</h2>\n    <p>This is a paragraph with <span style="color: blue;">blue text</span>.</p>\n    <div>This is a div container</div>\n</body>\n</html>'
+        };
+
+        // Lesson 3: Text Formatting
+        htmlLessons[3] = {
+            title: "Text Formatting",
+            duration: "18 min",
+            difficulty: "Beginner",
+            content: '<div class="lesson-section">' +
+                '<h2>Text Formatting in HTML</h2>' +
+                '<p>HTML provides various tags to format text and give it meaning.</p>' +
+                '<h3>Text Formatting Tags:</h3>' +
+                '<ul>' +
+                '<li><code>&lt;strong&gt;</code> - Important text (bold)</li>' +
+                '<li><code>&lt;em&gt;</code> - Emphasized text (italic)</li>' +
+                '<li><code>&lt;mark&gt;</code> - Highlighted text</li>' +
+                '<li><code>&lt;small&gt;</code> - Smaller text</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Text Formatting</title>\n</head>\n<body>\n    <h1>Text Formatting Examples</h1>\n    <p>This is <strong>important text</strong> that should be bold.</p>\n    <p>This is <em>emphasized text</em> that should be italic.</p>\n    <p>This is <mark>highlighted text</mark> with a background color.</p>\n    <p>This is <small>smaller text</small> for fine print.</p>\n</body>\n</html>'
+        };
+
+        // Lesson 4: Links & Navigation
+        htmlLessons[4] = {
+            title: "Links & Navigation",
+            duration: "20 min",
+            difficulty: "Beginner",
+            content: '<div class="lesson-section">' +
+                '<h2>Creating Links in HTML</h2>' +
+                '<p>Links connect pages and resources together using the anchor tag.</p>' +
+                '<h3>Types of Links:</h3>' +
+                '<ul>' +
+                '<li><strong>External Links:</strong> Link to other websites</li>' +
+                '<li><strong>Internal Links:</strong> Link to other pages on your site</li>' +
+                '<li><strong>Anchor Links:</strong> Link to sections within the same page</li>' +
+                '<li><strong>Email Links:</strong> Open email client</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Links Demo</title>\n</head>\n<body>\n    <h1>Links & Navigation Demo</h1>\n    <p>Visit <a href="https://www.google.com" target="_blank">Google</a></p>\n    <p>Email us: <a href="mailto:hello@example.com">hello@example.com</a></p>\n    <p>Call us: <a href="tel:+1234567890">+1 (234) 567-890</a></p>\n</body>\n</html>'
+        };
+
+        // Lesson 5: Images & Media
+        htmlLessons[5] = {
+            title: "Images & Media",
+            duration: "22 min",
+            difficulty: "Beginner",
+            content: '<div class="lesson-section">' +
+                '<h2>Adding Images and Media</h2>' +
+                '<p>Images and media make websites more engaging and informative.</p>' +
+                '<h3>Image Tag:</h3>' +
+                '<ul>' +
+                '<li><code>&lt;img&gt;</code> - Self-closing tag for images</li>' +
+                '<li><code>src</code> - Source URL of the image</li>' +
+                '<li><code>alt</code> - Alternative text for accessibility</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Images & Media</title>\n    <style>\n        .placeholder { width: 300px; height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; }\n    </style>\n</head>\n<body>\n    <h1>Images & Media Demo</h1>\n    <div class="placeholder">Image Placeholder</div>\n    <p>In a real website, you would use: &lt;img src="image.jpg" alt="Description"&gt;</p>\n</body>\n</html>'
+        };
+
+        // Lesson 6: Lists & Tables
+        htmlLessons[6] = {
+            title: "Lists & Tables",
+            duration: "25 min",
+            difficulty: "Beginner",
+            content: '<div class="lesson-section">' +
+                '<h2>HTML Lists and Tables</h2>' +
+                '<p>Lists and tables are essential for organizing structured data.</p>' +
+                '<h3>Types of Lists:</h3>' +
+                '<ul>' +
+                '<li><strong>Unordered Lists:</strong> <code>&lt;ul&gt;</code> with <code>&lt;li&gt;</code> items</li>' +
+                '<li><strong>Ordered Lists:</strong> <code>&lt;ol&gt;</code> with <code>&lt;li&gt;</code> items</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Lists & Tables</title>\n    <style>\n        table { border-collapse: collapse; width: 100%; }\n        th, td { border: 1px solid #ddd; padding: 8px; }\n        th { background-color: #f2f2f2; }\n    </style>\n</head>\n<body>\n    <h1>Lists & Tables Demo</h1>\n    <h2>Unordered List</h2>\n    <ul>\n        <li>HTML</li>\n        <li>CSS</li>\n        <li>JavaScript</li>\n    </ul>\n    <h2>Table</h2>\n    <table>\n        <tr><th>Course</th><th>Duration</th></tr>\n        <tr><td>HTML</td><td>2 hours</td></tr>\n        <tr><td>CSS</td><td>3 hours</td></tr>\n    </table>\n</body>\n</html>'
+        };
+
+        // Lesson 7: Forms & Input
+        htmlLessons[7] = {
+            title: "Forms & Input",
+            duration: "30 min",
+            difficulty: "Intermediate",
+            content: '<div class="lesson-section">' +
+                '<h2>HTML Forms and Input Elements</h2>' +
+                '<p>Forms are essential for collecting user input on websites.</p>' +
+                '<h3>Form Structure:</h3>' +
+                '<ul>' +
+                '<li><code>&lt;form&gt;</code> - Container for form elements</li>' +
+                '<li><code>&lt;input&gt;</code> - Various input types</li>' +
+                '<li><code>&lt;textarea&gt;</code> - Multi-line text input</li>' +
+                '<li><code>&lt;select&gt;</code> - Dropdown selection</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Forms Demo</title>\n    <style>\n        form { max-width: 400px; margin: 20px; }\n        label { display: block; margin: 10px 0 5px; }\n        input, textarea, select { width: 100%; padding: 8px; margin-bottom: 10px; }\n        button { padding: 10px 20px; background: #007bff; color: white; border: none; }\n    </style>\n</head>\n<body>\n    <h1>Contact Form</h1>\n    <form>\n        <label for="name">Name:</label>\n        <input type="text" id="name" name="name" required>\n        \n        <label for="email">Email:</label>\n        <input type="email" id="email" name="email" required>\n        \n        <label for="message">Message:</label>\n        <textarea id="message" name="message" rows="4"></textarea>\n        \n        <button type="submit">Send Message</button>\n    </form>\n</body>\n</html>'
+        };
+
+        // Lesson 8: Semantic HTML5
+        htmlLessons[8] = {
+            title: "Semantic HTML5",
+            duration: "20 min",
+            difficulty: "Intermediate",
+            content: '<div class="lesson-section">' +
+                '<h2>Understanding Semantic HTML5</h2>' +
+                '<p>Semantic HTML uses elements that clearly describe their meaning and purpose.</p>' +
+                '<h3>Semantic HTML5 Elements:</h3>' +
+                '<ul>' +
+                '<li><code>&lt;header&gt;</code> - Page or section header</li>' +
+                '<li><code>&lt;nav&gt;</code> - Navigation links</li>' +
+                '<li><code>&lt;main&gt;</code> - Main content area</li>' +
+                '<li><code>&lt;article&gt;</code> - Independent content</li>' +
+                '<li><code>&lt;section&gt;</code> - Thematic grouping</li>' +
+                '<li><code>&lt;aside&gt;</code> - Sidebar content</li>' +
+                '<li><code>&lt;footer&gt;</code> - Page or section footer</li>' +
+                '</ul>' +
+                '</div>',
+            code: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Semantic HTML5</title>\n    <style>\n        body { font-family: Arial, sans-serif; margin: 0; }\n        header, footer { background: #333; color: white; padding: 20px; text-align: center; }\n        nav { background: #f4f4f4; padding: 10px; }\n        main { padding: 20px; }\n        aside { background: #f9f9f9; padding: 15px; }\n    </style>\n</head>\n<body>\n    <header>\n        <h1>My Website</h1>\n    </header>\n    <nav>\n        <a href="#home">Home</a> | <a href="#about">About</a> | <a href="#contact">Contact</a>\n    </nav>\n    <main>\n        <article>\n            <h2>Article Title</h2>\n            <p>This is the main content of the article.</p>\n        </article>\n        <aside>\n            <h3>Related Links</h3>\n            <p>Sidebar content goes here.</p>\n        </aside>\n    </main>\n    <footer>\n        <p>&copy; 2024 My Website. All rights reserved.</p>\n    </footer>\n</body>\n</html>'
+        };
+
+        // Initialize course
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeCourse('html', htmlLessons, 8);
+        });
+    </script>
+</body>
+
+</html>

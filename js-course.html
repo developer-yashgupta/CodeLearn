@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Course - CodeLearn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>CodeLearn</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Layout -->
+    <div class="course-layout">
+        <!-- Sidebar -->
+        <aside class="course-sidebar">
+            <div class="sidebar-header">
+                <h3>⚡ JavaScript Course</h3>
+                <div class="course-progress">
+                    <div class="progress-text">
+                        <span id="completed-lessons">0</span> of <span id="total-lessons">12</span> completed
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="sidebar-progress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="lesson-nav">
+                <ul class="lesson-list">        
+            <li class="lesson-item active" data-lesson="1">
+                        <span class="lesson-number">1</span>
+                        <span class="lesson-title">Introduction to JavaScript</span>
+                        <span class="lesson-status">✓</span>
+                    </li>
+                    <li class="lesson-item" data-lesson="2">
+                        <span class="lesson-number">2</span>
+                        <span class="lesson-title">Variables & Data Types</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="3">
+                        <span class="lesson-number">3</span>
+                        <span class="lesson-title">Functions</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="4">
+                        <span class="lesson-number">4</span>
+                        <span class="lesson-title">Control Flow</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="5">
+                        <span class="lesson-number">5</span>
+                        <span class="lesson-title">Arrays & Objects</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="6">
+                        <span class="lesson-number">6</span>
+                        <span class="lesson-title">DOM Manipulation</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="7">
+                        <span class="lesson-number">7</span>
+                        <span class="lesson-title">Event Handling</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="8">
+                        <span class="lesson-number">8</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="9">
+                        <span class="lesson-number">9</span>
+                        <span class="lesson-title">Error Handling</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="10">
+                        <span class="lesson-number">10</span>
+                        <span class="lesson-title">Local Storage</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="11">
+                        <span class="lesson-number">11</span>
+                        <span class="lesson-title">Async JavaScript</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                    <li class="lesson-item" data-lesson="12">
+                        <span class="lesson-number">12</span>
+                        <span class="lesson-title">Project: To-Do App</span>
+                        <span class="lesson-status"></span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>      
+  <!-- Main Content -->
+        <main class="course-main">
+            <div class="lesson-content">
+                <div class="lesson-header">
+                    <h1 id="lesson-title">Introduction to JavaScript</h1>
+                    <div class="lesson-meta">
+                        <span class="lesson-duration">⏱️ 25 min</span>
+                        <span class="lesson-difficulty">📚 Beginner</span>
+                    </div>
+                </div>
+
+                <div class="lesson-body" id="lesson-body">
+                    <!-- Lesson content will be loaded here -->
+                </div>
+
+                <!-- Code Editor Section -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3>Try it yourself:</h3>
+                        <button class="btn btn-primary" id="run-code">Run Code</button>
+                    </div>
+
+                    <div class="code-editor-container">
+                        <div class="code-editor">
+                            <textarea id="code-input" placeholder="Write your JavaScript code here..."></textarea>
+                        </div>
+
+                        <div class="code-output">
+                            <div class="output-header">
+                                <h4>Output:</h4>
+                            </div>
+                            <iframe id="output-frame" sandbox="allow-same-origin allow-scripts"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <button class="btn btn-secondary" id="prev-lesson" disabled>← Previous</button>
+                    <button class="btn btn-primary" id="complete-lesson">Mark as Complete</button>
+                    <button class="btn btn-primary" id="next-lesson">Next Lesson →</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/editor.js"></script>
+    <script>
+        // JavaScript Course Data - Clean Console Output
+        const jsLessons = {
+            1: {
+                title: "Introduction to JavaScript",
+                duration: "25 min",
+                difficulty: "Beginner", 
+               content: `
+                    <div class="lesson-section">
+                        <h2>What is JavaScript?</h2>
+                        <p>JavaScript is a high-level, interpreted programming language that enables interactive web pages.</p>
+                        
+                        <h3>Key Features:</h3>
+                        <ul>
+                            <li><strong>Dynamic:</strong> Can modify content at runtime</li>
+                            <li><strong>Event-driven:</strong> Responds to user interactions</li>
+                            <li><strong>Client-side:</strong> Runs in the browser</li>
+                            <li><strong>Versatile:</strong> Can also run on servers</li>
+                        </ul>
+
+                        <h3>What can JavaScript do?</h3>
+                        <ul>
+                            <li>Change HTML content and attributes</li>
+                            <li>Modify CSS styles dynamically</li>
+                            <li>Validate form data</li>
+                            <li>Create animations and interactive effects</li>
+                            <li>Handle user events</li>
+                            <li>Communicate with servers</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Welcome to JavaScript!
+console.log("Hello, JavaScript!");
+console.log("=".repeat(30));
+
+// Variables
+let message = "Welcome to JavaScript";
+const year = 2024;
+var isLearning = true;
+
+console.log("Message:", message);
+console.log("Year:", year);
+console.log("Learning JavaScript:", isLearning);
+
+// Basic operations
+console.log("\\n--- Basic Operations ---");
+console.log("5 + 3 =", 5 + 3);
+console.log("10 - 4 =", 10 - 4);
+console.log("6 * 7 =", 6 * 7);
+console.log("15 / 3 =", 15 / 3);
+
+// String operations
+console.log("\\n--- String Operations ---");
+console.log("Hello" + " " + "World");
+console.log("JavaScript".length);
+console.log("JAVASCRIPT".toLowerCase());
+
+console.log("\\n🎉 JavaScript Introduction Complete!");`
+            }, 
+           2: {
+                title: "Variables & Data Types",
+                duration: "20 min",
+                difficulty: "Beginner",
+                content: `
+                    <div class="lesson-section">
+                        <h2>JavaScript Variables and Data Types</h2>
+                        <p>Variables are containers for storing data values.</p>
+                        
+                        <h3>Variable Declaration:</h3>
+                        <ul>
+                            <li><code>let</code> - Block-scoped variable</li>
+                            <li><code>const</code> - Block-scoped constant</li>
+                            <li><code>var</code> - Function-scoped variable</li>
+                        </ul>
+
+                        <h3>Data Types:</h3>
+                        <ul>
+                            <li>String - Text data</li>
+                            <li>Number - Numeric data</li>
+                            <li>Boolean - True/false values</li>
+                            <li>Array - List of values</li>
+                            <li>Object - Key-value pairs</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Variables & Data Types Demo
+console.log("=== VARIABLES & DATA TYPES ===");
+
+// Variable declarations
+let name = "Alice";
+const age = 25;
+var city = "New York";
+
+console.log("\\n--- Variable Declarations ---");
+console.log("let name =", name);
+console.log("const age =", age);
+console.log("var city =", city);
+
+// Data types
+console.log("\\n--- Data Types ---");
+let stringType = "Hello World";
+let numberType = 42;
+let booleanType = true;
+let undefinedType;
+let nullType = null;
+
+console.log("String:", stringType, "(type:", typeof stringType + ")");
+console.log("Number:", numberType, "(type:", typeof numberType + ")");
+console.log("Boolean:", booleanType, "(type:", typeof booleanType + ")");
+console.log("Undefined:", undefinedType, "(type:", typeof undefinedType + ")");
+console.log("Null:", nullType, "(type:", typeof nullType + ")");
+
+// Arrays
+console.log("\\n--- Arrays ---");
+let fruits = ["apple", "banana", "orange"];
+let numbers = [1, 2, 3, 4, 5];
+
+console.log("Fruits array:", fruits);
+console.log("Numbers array:", numbers);
+console.log("First fruit:", fruits[0]);
+console.log("Array length:", fruits.length);
+
+// Objects
+console.log("\\n--- Objects ---");
+let person = {
+    name: "John Doe",
+    age: 30,
+    city: "Boston",
+    isStudent: false
+};
+
+console.log("Person object:", person);
+console.log("Person name:", person.name);
+console.log("Person age:", person.age);
+
+console.log("\\n✅ Variables & Data Types Complete!");`
+            },        
+    3: {
+                title: "Functions",
+                duration: "25 min",
+                difficulty: "Beginner",
+                content: `
+                    <div class="lesson-section">
+                        <h2>JavaScript Functions</h2>
+                        <p>Functions are reusable blocks of code that perform specific tasks.</p>
+                        
+                        <h3>Function Types:</h3>
+                        <ul>
+                            <li>Function declaration</li>
+                            <li>Function expression</li>
+                            <li>Arrow function</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Functions Demo
+console.log("=== JAVASCRIPT FUNCTIONS ===");
+
+// Function declaration
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+console.log("\\n--- Function Declaration ---");
+console.log("greet('Alice'):", greet('Alice'));
+console.log("greet('Bob'):", greet('Bob'));
+
+// Function with multiple parameters
+function add(a, b) {
+    return a + b;
+}
+
+console.log("\\n--- Function with Parameters ---");
+console.log("add(5, 3):", add(5, 3));
+console.log("add(10, 20):", add(10, 20));
+
+// Function expression
+const multiply = function(x, y) {
+    return x * y;
+};
+
+console.log("\\n--- Function Expression ---");
+console.log("multiply(4, 6):", multiply(4, 6));
+console.log("multiply(7, 8):", multiply(7, 8));
+
+// Arrow function
+const square = (num) => num * num;
+const divide = (a, b) => a / b;
+
+console.log("\\n--- Arrow Functions ---");
+console.log("square(5):", square(5));
+console.log("square(8):", square(8));
+console.log("divide(20, 4):", divide(20, 4));
+
+// Function with return value
+function calculateArea(width, height) {
+    const area = width * height;
+    console.log("Calculating area of", width, "x", height);
+    return area;
+}
+
+console.log("\\n--- Function with Return Value ---");
+let rectangleArea = calculateArea(5, 8);
+console.log("Rectangle area:", rectangleArea);
+
+// Function without return (undefined)
+function sayHello() {
+    console.log("Hello from function!");
+}
+
+console.log("\\n--- Function without Return ---");
+let result = sayHello();
+console.log("Function result:", result);
+
+console.log("\\n⚡ Functions Complete!");`
+            },           
+ 4: {
+                title: "Control Flow",
+                duration: "30 min",
+                difficulty: "Beginner",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Control Flow in JavaScript</h2>
+                        <p>Control flow statements allow you to control the execution of your code based on conditions.</p>
+                        
+                        <h3>Conditional Statements:</h3>
+                        <ul>
+                            <li><code>if...else</code> - Execute code based on conditions</li>
+                            <li><code>switch</code> - Multiple condition checking</li>
+                            <li><code>ternary operator</code> - Shorthand conditional</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Control Flow Demo
+console.log("=== CONTROL FLOW ===");
+
+// If-else statements
+console.log("\\n--- If-Else Statements ---");
+let score = 85;
+let grade;
+
+if (score >= 90) {
+    grade = "A";
+} else if (score >= 80) {
+    grade = "B";
+} else if (score >= 70) {
+    grade = "C";
+} else if (score >= 60) {
+    grade = "D";
+} else {
+    grade = "F";
+}
+
+console.log("Score:", score);
+console.log("Grade:", grade);
+
+// Ternary operator
+console.log("\\n--- Ternary Operator ---");
+let age = 20;
+let status = age >= 18 ? "Adult" : "Minor";
+console.log("Age:", age);
+console.log("Status:", status);
+
+let temperature = 25;
+let weather = temperature > 30 ? "Hot" : temperature > 20 ? "Warm" : "Cool";
+console.log("Temperature:", temperature + "°C");
+console.log("Weather:", weather);
+
+// Switch statement
+console.log("\\n--- Switch Statement ---");
+let day = "Monday";
+
+switch(day) {
+    case "Monday":
+        console.log("Start of the work week!");
+        break;
+    case "Tuesday":
+        console.log("Tuesday blues");
+        break;
+    case "Wednesday":
+        console.log("Hump day!");
+        break;
+    case "Thursday":
+        console.log("Almost there!");
+        break;
+    case "Friday":
+        console.log("TGIF!");
+        break;
+    case "Saturday":
+    case "Sunday":
+        console.log("Weekend time!");
+        break;
+    default:
+        console.log("Invalid day");
+}
+
+// Comparison operators
+console.log("\\n--- Comparison Operators ---");
+console.log("5 == '5':", 5 == '5');
+console.log("5 === '5':", 5 === '5');
+console.log("10 > 5:", 10 > 5);
+console.log("3 <= 3:", 3 <= 3);
+console.log("'apple' !== 'orange':", 'apple' !== 'orange');
+
+// Logical operators
+console.log("\\n--- Logical Operators ---");
+let isLoggedIn = true;
+let hasPermission = false;
+
+console.log("isLoggedIn && hasPermission:", isLoggedIn && hasPermission);
+console.log("isLoggedIn || hasPermission:", isLoggedIn || hasPermission);
+console.log("!isLoggedIn:", !isLoggedIn);
+
+console.log("\\n🔀 Control Flow Complete!");`
+            },          
+  5: {
+                title: "Arrays & Objects",
+                duration: "35 min",
+                difficulty: "Intermediate",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Arrays and Objects</h2>
+                        <p>Arrays and objects are fundamental data structures for storing collections of data.</p>
+                        
+                        <h3>Arrays:</h3>
+                        <ul>
+                            <li>Ordered lists of values</li>
+                            <li>Access elements by index</li>
+                            <li>Methods: push, pop, slice, etc.</li>
+                        </ul>
+
+                        <h3>Objects:</h3>
+                        <ul>
+                            <li>Key-value pairs</li>
+                            <li>Access properties with dot notation</li>
+                            <li>Can contain methods</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Arrays & Objects Demo
+console.log("=== ARRAYS & OBJECTS ===");
+
+// Array basics
+console.log("\\n--- Array Basics ---");
+let fruits = ["apple", "banana", "orange", "grape"];
+let numbers = [1, 2, 3, 4, 5];
+let mixed = ["hello", 42, true, null];
+
+console.log("Fruits array:", fruits);
+console.log("Numbers array:", numbers);
+console.log("Mixed array:", mixed);
+console.log("Array length:", fruits.length);
+console.log("First fruit:", fruits[0]);
+console.log("Last fruit:", fruits[fruits.length - 1]);
+
+// Array methods
+console.log("\\n--- Array Methods ---");
+let colors = ["red", "green", "blue"];
+console.log("Original colors:", colors);
+
+colors.push("yellow");
+console.log("After push('yellow'):", colors);
+
+let popped = colors.pop();
+console.log("After pop():", colors);
+console.log("Popped element:", popped);
+
+colors.unshift("purple");
+console.log("After unshift('purple'):", colors);
+
+let sliced = colors.slice(1, 3);
+console.log("slice(1, 3):", sliced);
+console.log("Original array unchanged:", colors);
+
+console.log("indexOf('green'):", colors.indexOf("green"));
+console.log("includes('blue'):", colors.includes("blue"));
+
+// Array iteration
+console.log("\\n--- Array Iteration ---");
+let scores = [85, 92, 78, 96, 88];
+console.log("Scores:", scores);
+
+console.log("Iterating through scores:");
+for (let i = 0; i < scores.length; i++) {
+    console.log("Score " + (i + 1) + ":", scores[i]);
+}
+
+// Object basics
+console.log("\\n--- Object Basics ---");
+let person = {
+    name: "Alice Johnson",
+    age: 28,
+    city: "San Francisco",
+    occupation: "Software Developer",
+    hobbies: ["reading", "hiking", "coding"]
+};
+
+console.log("Person object:", person);
+console.log("Name:", person.name);
+console.log("Age:", person.age);
+console.log("City:", person.city);
+console.log("Hobbies:", person.hobbies);
+
+// Object methods
+console.log("\\n--- Object with Methods ---");
+let calculator = {
+    brand: "Scientific Pro",
+    model: "SP-2024",
+    add: function(a, b) {
+        return a + b;
+    },
+    multiply: function(a, b) {
+        return a * b;
+    },
+    getInfo: function() {
+        return this.brand + " " + this.model;
+    }
+};
+
+console.log("Calculator info:", calculator.getInfo());
+console.log("5 + 3 =", calculator.add(5, 3));
+console.log("4 × 7 =", calculator.multiply(4, 7));
+
+// Complex example
+console.log("\\n--- Complex Example ---");
+let library = {
+    name: "City Library",
+    books: [
+        { title: "JavaScript Guide", author: "John Doe", year: 2023 },
+        { title: "Web Development", author: "Jane Smith", year: 2022 },
+        { title: "Data Structures", author: "Bob Wilson", year: 2024 }
+    ],
+    getBookCount: function() {
+        return this.books.length;
+    },
+    addBook: function(title, author, year) {
+        this.books.push({ title: title, author: author, year: year });
+    }
+};
+
+console.log("Library:", library.name);
+console.log("Total books:", library.getBookCount());
+console.log("Books:");
+for (let i = 0; i < library.books.length; i++) {
+    let book = library.books[i];
+    console.log("- " + book.title + " by " + book.author + " (" + book.year + ")");
+}
+
+library.addBook("Advanced JavaScript", "Sarah Connor", 2024);
+console.log("After adding new book, total:", library.getBookCount());
+
+console.log("\\n📊 Arrays & Objects Complete!");`
+            },     
+       6: {
+                title: "DOM Manipulation",
+                duration: "40 min",
+                difficulty: "Intermediate",
+                content: `
+                    <div class="lesson-section">
+                        <h2>DOM Manipulation</h2>
+                        <p>The Document Object Model (DOM) allows JavaScript to interact with HTML elements.</p>
+                        
+                        <h3>Common DOM Methods:</h3>
+                        <ul>
+                            <li><code>getElementById()</code> - Select element by ID</li>
+                            <li><code>querySelector()</code> - Select element by CSS selector</li>
+                            <li><code>innerHTML</code> - Change element content</li>
+                            <li><code>style</code> - Change element styles</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// DOM Manipulation Demo
+console.log("=== DOM MANIPULATION ===");
+
+// Note: This code demonstrates DOM concepts
+// In a real webpage, these would interact with HTML elements
+
+console.log("\\n--- DOM Selection Methods ---");
+console.log("document.getElementById('myId') - Selects element by ID");
+console.log("document.querySelector('.myClass') - Selects first element by CSS selector");
+console.log("document.querySelectorAll('div') - Selects all div elements");
+console.log("document.getElementsByTagName('p') - Selects all p elements");
+
+console.log("\\n--- DOM Manipulation Methods ---");
+console.log("element.innerHTML = 'New content' - Changes element content");
+console.log("element.textContent = 'Text only' - Changes text content");
+console.log("element.style.color = 'red' - Changes CSS styles");
+console.log("element.setAttribute('class', 'newClass') - Sets attributes");
+
+console.log("\\n--- Creating and Adding Elements ---");
+console.log("document.createElement('div') - Creates new element");
+console.log("parent.appendChild(child) - Adds child to parent");
+console.log("parent.removeChild(child) - Removes child from parent");
+
+// Simulated DOM operations
+console.log("\\n--- Simulated DOM Operations ---");
+
+// Simulate creating elements
+console.log("Creating new div element...");
+let newDiv = { tagName: "DIV", innerHTML: "", style: {} };
+console.log("Element created:", newDiv);
+
+// Simulate setting content
+console.log("\\nSetting element content...");
+newDiv.innerHTML = "Hello from JavaScript!";
+console.log("Content set:", newDiv.innerHTML);
+
+// Simulate styling
+console.log("\\nApplying styles...");
+newDiv.style.color = "blue";
+newDiv.style.fontSize = "18px";
+newDiv.style.fontWeight = "bold";
+console.log("Styles applied:", newDiv.style);
+
+// Simulate event handling
+console.log("\\n--- Event Handling Concepts ---");
+console.log("element.addEventListener('click', function) - Adds click listener");
+console.log("element.onclick = function() {} - Sets click handler");
+console.log("event.preventDefault() - Prevents default behavior");
+console.log("event.target - Gets the element that triggered the event");
+
+// Example event handler function
+function handleClick(event) {
+    console.log("Button clicked!");
+    console.log("Event type:", event.type);
+    console.log("Target element:", event.target);
+}
+
+console.log("\\nExample click handler function:");
+console.log(handleClick.toString());
+
+// Form handling example
+console.log("\\n--- Form Handling Example ---");
+function validateForm(formData) {
+    console.log("Validating form data...");
+    
+    if (!formData.name || formData.name.length < 2) {
+        console.log("❌ Name must be at least 2 characters");
+        return false;
+    }
+    
+    if (!formData.email || !formData.email.includes("@")) {
+        console.log("❌ Please enter a valid email");
+        return false;
+    }
+    
+    console.log("✅ Form validation passed!");
+    return true;
+}
+
+// Test form validation
+let testForm = { name: "John", email: "john@example.com" };
+console.log("Testing form:", testForm);
+validateForm(testForm);
+
+let invalidForm = { name: "A", email: "invalid-email" };
+console.log("\\nTesting invalid form:", invalidForm);
+validateForm(invalidForm);
+
+console.log("\\n🎯 DOM Manipulation Complete!");
+console.log("Note: In a real webpage, these methods would interact with actual HTML elements.");`
+            }, 
+           7: {
+                title: "Event Handling",
+                duration: "35 min",
+                difficulty: "Intermediate",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Event Handling</h2>
+                        <p>Events allow JavaScript to respond to user interactions like clicks, key presses, and mouse movements.</p>
+                        
+                        <h3>Common Events:</h3>
+                        <ul>
+                            <li><code>click</code> - Mouse click</li>
+                            <li><code>keydown</code> - Key press</li>
+                            <li><code>mouseover</code> - Mouse hover</li>
+                            <li><code>submit</code> - Form submission</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Event Handling Demo
+console.log("=== EVENT HANDLING ===");
+
+console.log("\\n--- Event Types ---");
+console.log("Mouse Events: click, dblclick, mousedown, mouseup, mouseover, mouseout");
+console.log("Keyboard Events: keydown, keyup, keypress");
+console.log("Form Events: submit, change, focus, blur");
+console.log("Window Events: load, resize, scroll");
+
+// Event handler functions
+console.log("\\n--- Event Handler Functions ---");
+
+function handleButtonClick(event) {
+    console.log("🖱️ Button clicked!");
+    console.log("Event type:", event.type);
+    console.log("Button text:", event.target.textContent);
+    console.log("Timestamp:", new Date().toLocaleTimeString());
+}
+
+function handleKeyPress(event) {
+    console.log("⌨️ Key pressed:", event.key);
+    console.log("Key code:", event.code);
+    console.log("Ctrl key held:", event.ctrlKey);
+    console.log("Shift key held:", event.shiftKey);
+}
+
+function handleMouseOver(event) {
+    console.log("🖱️ Mouse entered element");
+    console.log("Element tag:", event.target.tagName);
+    console.log("Mouse position: X=" + event.clientX + ", Y=" + event.clientY);
+}
+
+function handleFormSubmit(event) {
+    console.log("📝 Form submitted!");
+    console.log("Preventing default submission...");
+    // event.preventDefault(); // Would prevent actual form submission
+    
+    // Get form data
+    let formData = new FormData(event.target);
+    console.log("Form data collected:");
+    for (let [key, value] of formData.entries()) {
+        console.log("  " + key + ":", value);
+    }
+}
+
+console.log("\\n--- Event Listener Examples ---");
+console.log("Adding event listeners (simulated):");
+
+// Simulate adding event listeners
+console.log("\\n1. Button click listener:");
+console.log("button.addEventListener('click', handleButtonClick);");
+
+console.log("\\n2. Input keypress listener:");
+console.log("input.addEventListener('keypress', handleKeyPress);");
+
+console.log("\\n3. Element mouseover listener:");
+console.log("element.addEventListener('mouseover', handleMouseOver);");
+
+console.log("\\n4. Form submit listener:");
+console.log("form.addEventListener('submit', handleFormSubmit);");
+
+// Event object properties
+console.log("\\n--- Event Object Properties ---");
+let sampleEvent = {
+    type: "click",
+    target: { tagName: "BUTTON", textContent: "Click Me" },
+    currentTarget: { tagName: "DIV" },
+    clientX: 150,
+    clientY: 200,
+    ctrlKey: false,
+    shiftKey: false,
+    altKey: false,
+    key: "Enter",
+    code: "Enter",
+    timeStamp: Date.now()
+};
+
+console.log("Sample event object:", sampleEvent);
+console.log("Event type:", sampleEvent.type);
+console.log("Target element:", sampleEvent.target.tagName);
+console.log("Mouse position:", sampleEvent.clientX + ", " + sampleEvent.clientY);
+
+// Event delegation example
+console.log("\\n--- Event Delegation ---");
+function handleListClick(event) {
+    if (event.target.tagName === "LI") {
+        console.log("List item clicked:", event.target.textContent);
+        console.log("Item index:", Array.from(event.target.parentNode.children).indexOf(event.target));
+    }
+}
+
+console.log("Event delegation allows handling events on parent elements:");
+console.log("ul.addEventListener('click', handleListClick);");
+console.log("This handles clicks on all <li> elements, even future ones!");
+
+// Custom events
+console.log("\\n--- Custom Events ---");
+function createCustomEvent(eventName, data) {
+    console.log("Creating custom event:", eventName);
+    console.log("Event data:", data);
+    
+    // Simulate dispatching custom event
+    console.log("Dispatching event...");
+    console.log("element.dispatchEvent(new CustomEvent('" + eventName + "', { detail: data }));");
+}
+
+createCustomEvent("userLogin", { username: "john_doe", timestamp: new Date() });
+createCustomEvent("dataLoaded", { recordCount: 150, loadTime: "2.3s" });
+
+// Event best practices
+console.log("\\n--- Event Handling Best Practices ---");
+console.log("1. Always remove event listeners when no longer needed");
+console.log("2. Use event delegation for dynamic content");
+console.log("3. Prevent default behavior when necessary");
+console.log("4. Use passive listeners for better performance");
+console.log("5. Debounce or throttle high-frequency events");
+
+// Simulated event flow
+console.log("\\n--- Event Flow Simulation ---");
+console.log("Event flow: Capture → Target → Bubble");
+console.log("1. Capture phase: Event travels down from document to target");
+console.log("2. Target phase: Event reaches the target element");
+console.log("3. Bubble phase: Event bubbles up from target to document");
+
+function simulateEventFlow(eventType) {
+    console.log("\\nSimulating " + eventType + " event flow:");
+    console.log("📥 Capture phase: document → body → div → button");
+    console.log("🎯 Target phase: button (event handler executes)");
+    console.log("📤 Bubble phase: button → div → body → document");
+}
+
+simulateEventFlow("click");
+
+console.log("\\n🎮 Event Handling Complete!");`
+            },           
+ 8: {
+                title: "Loops & Iteration",
+                duration: "30 min",
+                difficulty: "Beginner",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Loops and Iteration</h2>
+                        <p>Loops allow you to repeat code multiple times efficiently.</p>
+                        
+                        <h3>Types of Loops:</h3>
+                        <ul>
+                            <li><code>for</code> - Loop with counter</li>
+                            <li><code>while</code> - Loop while condition is true</li>
+                            <li><code>for...of</code> - Loop through array values</li>
+                            <li><code>for...in</code> - Loop through object properties</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Loops & Iteration Demo
+console.log("=== LOOPS & ITERATION ===");
+
+// For loop
+console.log("\\n--- For Loop ---");
+console.log("Counting from 1 to 10:");
+for (let i = 1; i <= 10; i++) {
+    console.log("Count:", i);
+}
+
+console.log("\\nEven numbers from 2 to 20:");
+for (let i = 2; i <= 20; i += 2) {
+    console.log("Even:", i);
+}
+
+console.log("\\nCountdown from 5:");
+for (let i = 5; i >= 1; i--) {
+    console.log("Countdown:", i);
+}
+console.log("🚀 Blast off!");
+
+// While loop
+console.log("\\n--- While Loop ---");
+console.log("Doubling numbers until they exceed 100:");
+let num = 1;
+while (num <= 100) {
+    console.log("Number:", num);
+    num *= 2;
+}
+
+console.log("\\nGuessing game simulation:");
+let target = 7;
+let guess = 1;
+let attempts = 0;
+while (guess !== target && attempts < 10) {
+    attempts++;
+    guess = Math.floor(Math.random() * 10) + 1;
+    console.log("Attempt " + attempts + ": Guessed " + guess);
+}
+if (guess === target) {
+    console.log("🎯 Found the target " + target + " in " + attempts + " attempts!");
+} else {
+    console.log("⏰ Stopped after " + attempts + " attempts");
+}
+
+// Do-while loop
+console.log("\\n--- Do-While Loop ---");
+console.log("Rolling dice until we get a 6:");
+let roll;
+let rollCount = 0;
+do {
+    roll = Math.floor(Math.random() * 6) + 1;
+    rollCount++;
+    console.log("Roll " + rollCount + ": " + roll);
+} while (roll !== 6 && rollCount < 10);
+
+// For...of loop (arrays)
+console.log("\\n--- For...Of Loop (Arrays) ---");
+let fruits = ["🍎 Apple", "🍌 Banana", "🍊 Orange", "🍇 Grape", "🍓 Strawberry"];
+console.log("Iterating through fruits:");
+for (const fruit of fruits) {
+    console.log("Fruit:", fruit);
+}
+
+let numbers = [10, 25, 30, 45, 50];
+console.log("\\nCalculating squares:");
+for (const num of numbers) {
+    console.log(num + "² = " + (num * num));
+}
+
+console.log("\\nIterating through string characters:");
+const word = "JavaScript";
+for (const letter of word) {
+    console.log("Letter:", letter);
+}
+
+// For...in loop (objects)
+console.log("\\n--- For...In Loop (Objects) ---");
+let person = {
+    name: "Alice",
+    age: 28,
+    city: "New York",
+    occupation: "Developer",
+    hobby: "Reading"
+};
+
+console.log("Person properties:");
+for (const key in person) {
+    console.log(key + ":", person[key]);
+}
+
+let scores = {
+    math: 95,
+    science: 87,
+    english: 92,
+    history: 89
+};
+
+console.log("\\nTest scores:");
+let total = 0;
+let count = 0;
+for (const subject in scores) {
+    console.log(subject + ":", scores[subject] + "%");
+    total += scores[subject];
+    count++;
+}
+let average = Math.round(total / count);
+console.log("Average score:", average + "%");
+
+// Nested loops
+console.log("\\n--- Nested Loops ---");
+console.log("Multiplication table (1-5):");
+for (let i = 1; i <= 5; i++) {
+    let row = "";
+    for (let j = 1; j <= 5; j++) {
+        row += (i * j).toString().padStart(3, " ");
+    }
+    console.log("Row " + i + ":" + row);
+}
+
+console.log("\\nPattern with stars:");
+for (let i = 1; i <= 5; i++) {
+    let stars = "";
+    for (let j = 1; j <= i; j++) {
+        stars += "⭐ ";
+    }
+    console.log(stars);
+}
+
+// Array methods that use iteration
+console.log("\\n--- Array Iteration Methods ---");
+let prices = [19.99, 25.50, 12.75, 8.99, 45.00];
+console.log("Original prices:", prices);
+
+console.log("\\nUsing forEach:");
+prices.forEach((price, index) => {
+    console.log("Item " + (index + 1) + ": $" + price.toFixed(2));
+});
+
+console.log("\\nUsing map (add tax):");
+let withTax = prices.map(price => price * 1.08);
+console.log("Prices with tax:", withTax.map(p => "$" + p.toFixed(2)));
+
+console.log("\\nUsing filter (expensive items):");
+let expensive = prices.filter(price => price > 20);
+console.log("Expensive items:", expensive);
+
+console.log("\\nUsing reduce (total):");
+let total_price = prices.reduce((sum, price) => sum + price, 0);
+console.log("Total price: $" + total_price.toFixed(2));
+
+// Loop control statements
+console.log("\\n--- Loop Control Statements ---");
+console.log("Using break and continue:");
+for (let i = 1; i <= 10; i++) {
+    if (i === 3) {
+        console.log("Skipping " + i + " (continue)");
+        continue;
+    }
+    if (i === 8) {
+        console.log("Breaking at " + i + " (break)");
+        break;
+    }
+    console.log("Processing:", i);
+}
+
+console.log("\\n🔄 Loops & Iteration Complete!");`
+            },    
+        9: {
+                title: "Error Handling",
+                duration: "25 min",
+                difficulty: "Intermediate",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Error Handling</h2>
+                        <p>Error handling helps your code gracefully handle unexpected situations.</p>
+                        
+                        <h3>Error Handling Methods:</h3>
+                        <ul>
+                            <li><code>try...catch</code> - Handle errors gracefully</li>
+                            <li><code>throw</code> - Create custom errors</li>
+                            <li><code>finally</code> - Code that always runs</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Error Handling Demo
+console.log("=== ERROR HANDLING ===");
+
+// Basic try-catch
+console.log("\\n--- Basic Try-Catch ---");
+try {
+    console.log("Attempting to call undefined function...");
+    someUndefinedFunction();
+} catch (error) {
+    console.log("❌ Error caught:", error.message);
+    console.log("Error type:", error.name);
+    console.log("Error stack (first line):", error.stack.split('\\n')[0]);
+} finally {
+    console.log("ℹ️ Finally block always executes");
+}
+
+console.log("✅ Code continues after error handling");
+
+// Function with error handling
+console.log("\\n--- Function with Error Handling ---");
+function divideNumbers(a, b) {
+    try {
+        if (typeof a !== 'number' || typeof b !== 'number') {
+            throw new Error("Both arguments must be numbers");
+        }
+        if (b === 0) {
+            throw new Error("Cannot divide by zero");
+        }
+        return a / b;
+    } catch (error) {
+        console.log("❌ Division error:", error.message);
+        return null;
+    } finally {
+        console.log("ℹ️ Division operation completed");
+    }
+}
+
+// Test division function
+console.log("\\nTesting division function:");
+console.log("divideNumbers(10, 2):", divideNumbers(10, 2));
+console.log("divideNumbers(10, 0):", divideNumbers(10, 0));
+console.log("divideNumbers('10', 2):", divideNumbers('10', 2));
+
+// JSON parsing with error handling
+console.log("\\n--- JSON Parsing Errors ---");
+const jsonStrings = [
+    '{"name": "Alice", "age": 25}',  // Valid JSON
+    '{"name": "Bob", "age": 30',     // Invalid JSON (missing closing brace)
+    'not json at all',               // Invalid JSON
+    '{"valid": true, "number": 42}'  // Valid JSON
+];
+
+jsonStrings.forEach((jsonString, index) => {
+    try {
+        const parsed = JSON.parse(jsonString);
+        console.log("✅ JSON " + (index + 1) + " parsed successfully:", parsed);
+    } catch (error) {
+        console.log("❌ JSON " + (index + 1) + " parsing failed:", error.message);
+        console.log("   Input was:", jsonString);
+    }
+});
+
+// Custom error types
+console.log("\\n--- Custom Error Types ---");
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "ValidationError";
+    }
+}
+
+class NetworkError extends Error {
+    constructor(message, statusCode) {
+        super(message);
+        this.name = "NetworkError";
+        this.statusCode = statusCode;
+    }
+}
+
+function validateAge(age) {
+    if (age < 0) {
+        throw new ValidationError("Age cannot be negative");
+    }
+    if (age > 150) {
+        throw new ValidationError("Age seems unrealistic");
+    }
+    if (!Number.isInteger(age)) {
+        throw new ValidationError("Age must be a whole number");
+    }
+    return true;
+}
+
+// Test custom errors
+console.log("\\nTesting custom validation errors:");
+const testAges = [25, -5, 200, 30.5];
+
+testAges.forEach(age => {
+    try {
+        validateAge(age);
+        console.log("✅ Age " + age + " is valid");
+    } catch (error) {
+        if (error instanceof ValidationError) {
+            console.log("❌ Validation Error for age " + age + ":", error.message);
+        } else {
+            console.log("❌ Unexpected error for age " + age + ":", error.message);
+        }
+    }
+});
+
+// Simulating network errors
+console.log("\\n--- Network Error Simulation ---");
+function simulateAPICall(url) {
+    const success = Math.random() > 0.3; // 70% success rate
+    
+    if (!success) {
+        const statusCodes = [404, 500, 503, 401];
+        const randomStatus = statusCodes[Math.floor(Math.random() * statusCodes.length)];
+        throw new NetworkError("API call failed", randomStatus);
+    }
+    
+    return { data: "API response data", status: 200 };
+}
+
+const apiUrls = [
+    "/api/users",
+    "/api/posts", 
+    "/api/comments",
+    "/api/settings"
+];
+
+apiUrls.forEach(url => {
+    try {
+        const response = simulateAPICall(url);
+        console.log("✅ API call to " + url + " succeeded:", response.data);
+    } catch (error) {
+        if (error instanceof NetworkError) {
+            console.log("❌ Network error for " + url + ":", error.message, "(Status: " + error.statusCode + ")");
+        } else {
+            console.log("❌ Unexpected error for " + url + ":", error.message);
+        }
+    }
+});
+
+// Error handling best practices
+console.log("\\n--- Error Handling Best Practices ---");
+console.log("1. Always handle errors that might occur");
+console.log("2. Provide meaningful error messages");
+console.log("3. Use specific error types for different scenarios");
+console.log("4. Log errors for debugging purposes");
+console.log("5. Don't ignore errors silently");
+console.log("6. Use finally blocks for cleanup code");
+
+// Throwing and catching custom errors
+console.log("\\n--- Throwing Custom Errors ---");
+function processUserInput(input) {
+    try {
+        if (!input) {
+            throw new Error("Input is required");
+        }
+        if (typeof input !== 'string') {
+            throw new TypeError("Input must be a string");
+        }
+        if (input.length < 3) {
+            throw new RangeError("Input must be at least 3 characters long");
+        }
+        
+        console.log("✅ Processing input:", input);
+        return input.toUpperCase();
+    } catch (error) {
+        console.log("❌ Input processing error:", error.name + " - " + error.message);
+        return null;
+    }
+}
+
+// Test input processing
+console.log("\\nTesting input processing:");
+console.log("Result:", processUserInput("hello"));
+console.log("Result:", processUserInput("hi"));
+console.log("Result:", processUserInput(123));
+console.log("Result:", processUserInput(""));
+
+console.log("\\n🛡️ Error Handling Complete!");`
+            },        
+    10: {
+                title: "Local Storage",
+                duration: "30 min",
+                difficulty: "Intermediate",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Local Storage</h2>
+                        <p>Local Storage allows you to store data in the browser that persists between sessions.</p>
+                        
+                        <h3>Local Storage Methods:</h3>
+                        <ul>
+                            <li><code>localStorage.setItem()</code> - Store data</li>
+                            <li><code>localStorage.getItem()</code> - Retrieve data</li>
+                            <li><code>localStorage.removeItem()</code> - Remove data</li>
+                            <li><code>localStorage.clear()</code> - Clear all data</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Local Storage Demo
+console.log("=== LOCAL STORAGE ===");
+
+// Note: This demo simulates localStorage operations
+// In a real browser, these would persist between sessions
+
+console.log("\\n--- Local Storage Basics ---");
+console.log("localStorage.setItem(key, value) - Stores data");
+console.log("localStorage.getItem(key) - Retrieves data");
+console.log("localStorage.removeItem(key) - Removes data");
+console.log("localStorage.clear() - Clears all data");
+console.log("localStorage.length - Number of items stored");
+
+// Simulate localStorage object
+let simulatedStorage = {};
+
+function setItem(key, value) {
+    simulatedStorage[key] = value;
+    console.log("✅ Stored:", key, "=", value);
+}
+
+function getItem(key) {
+    const value = simulatedStorage[key] || null;
+    console.log("📖 Retrieved:", key, "=", value);
+    return value;
+}
+
+function removeItem(key) {
+    delete simulatedStorage[key];
+    console.log("🗑️ Removed:", key);
+}
+
+function clear() {
+    simulatedStorage = {};
+    console.log("🧹 All storage cleared");
+}
+
+function showAllItems() {
+    console.log("📋 Current storage contents:");
+    const keys = Object.keys(simulatedStorage);
+    if (keys.length === 0) {
+        console.log("   (empty)");
+    } else {
+        keys.forEach(key => {
+            console.log("   " + key + ":", simulatedStorage[key]);
+        });
+    }
+    console.log("   Total items:", keys.length);
+}
+
+// Basic storage operations
+console.log("\\n--- Basic Storage Operations ---");
+setItem("username", "john_doe");
+setItem("theme", "dark");
+setItem("language", "en");
+
+showAllItems();
+
+getItem("username");
+getItem("theme");
+getItem("nonexistent");
+
+// Storing complex data (JSON)
+console.log("\\n--- Storing Complex Data ---");
+const userProfile = {
+    name: "Alice Johnson",
+    age: 28,
+    preferences: {
+        theme: "dark",
+        notifications: true,
+        language: "en"
+    },
+    lastLogin: new Date().toISOString()
+};
+
+console.log("Storing user profile object...");
+setItem("userProfile", JSON.stringify(userProfile));
+
+console.log("\\nRetrieving and parsing user profile...");
+const storedProfile = getItem("userProfile");
+if (storedProfile) {
+    try {
+        const parsedProfile = JSON.parse(storedProfile);
+        console.log("✅ Parsed profile:", parsedProfile);
+        console.log("User name:", parsedProfile.name);
+        console.log("User age:", parsedProfile.age);
+        console.log("Theme preference:", parsedProfile.preferences.theme);
+    } catch (error) {
+        console.log("❌ Error parsing profile:", error.message);
+    }
+}
+
+// Storing arrays
+console.log("\\n--- Storing Arrays ---");
+const shoppingCart = [
+    { id: 1, name: "Laptop", price: 999.99, quantity: 1 },
+    { id: 2, name: "Mouse", price: 29.99, quantity: 2 },
+    { id: 3, name: "Keyboard", price: 79.99, quantity: 1 }
+];
+
+console.log("Storing shopping cart...");
+setItem("shoppingCart", JSON.stringify(shoppingCart));
+
+console.log("\\nRetrieving shopping cart...");
+const storedCart = getItem("shoppingCart");
+if (storedCart) {
+    const parsedCart = JSON.parse(storedCart);
+    console.log("✅ Shopping cart retrieved:");
+    parsedCart.forEach(item => {
+        console.log("  " + item.name + " x" + item.quantity + " - $" + item.price);
+    });
+    
+    const total = parsedCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    console.log("  Total: $" + total.toFixed(2));
+}
+
+// Storage management
+console.log("\\n--- Storage Management ---");
+setItem("tempData", "This will be removed");
+setItem("sessionId", "abc123");
+setItem("lastVisit", new Date().toISOString());
+
+showAllItems();
+
+console.log("\\nRemoving temporary data...");
+removeItem("tempData");
+
+showAllItems();
+
+// Storage size simulation
+console.log("\\n--- Storage Size Information ---");
+function getStorageSize() {
+    let total = 0;
+    for (let key in simulatedStorage) {
+        total += key.length + simulatedStorage[key].length;
+    }
+    return total;
+}
+
+console.log("Approximate storage size:", getStorageSize(), "characters");
+
+// Storage event simulation
+console.log("\\n--- Storage Events ---");
+console.log("In a real browser, storage events fire when localStorage changes in another tab:");
+console.log("window.addEventListener('storage', function(event) {");
+console.log("  console.log('Storage changed:', event.key, event.newValue);");
+console.log("});");
+
+// Practical examples
+console.log("\\n--- Practical Examples ---");
+
+// Settings management
+function saveSettings(settings) {
+    console.log("💾 Saving application settings...");
+    setItem("appSettings", JSON.stringify(settings));
+}
+
+function loadSettings() {
+    console.log("📂 Loading application settings...");
+    const settings = getItem("appSettings");
+    return settings ? JSON.parse(settings) : getDefaultSettings();
+}
+
+function getDefaultSettings() {
+    return {
+        theme: "light",
+        fontSize: "medium",
+        autoSave: true,
+        notifications: true
+    };
+}
+
+const currentSettings = {
+    theme: "dark",
+    fontSize: "large",
+    autoSave: false,
+    notifications: true
+};
+
+saveSettings(currentSettings);
+const loadedSettings = loadSettings();
+console.log("Loaded settings:", loadedSettings);
+
+// Visit counter
+console.log("\\n--- Visit Counter Example ---");
+function updateVisitCounter() {
+    const visits = parseInt(getItem("visitCount") || "0");
+    const newCount = visits + 1;
+    setItem("visitCount", newCount.toString());
+    setItem("lastVisit", new Date().toISOString());
+    console.log("👋 Welcome! This is visit #" + newCount);
+    return newCount;
+}
+
+updateVisitCounter();
+updateVisitCounter();
+updateVisitCounter();
+
+// Form data persistence
+console.log("\\n--- Form Data Persistence ---");
+function saveFormData(formData) {
+    console.log("💾 Saving form data for later...");
+    setItem("draftForm", JSON.stringify({
+        ...formData,
+        savedAt: new Date().toISOString()
+    }));
+}
+
+function loadFormData() {
+    console.log("📂 Loading saved form data...");
+    const saved = getItem("draftForm");
+    if (saved) {
+        const data = JSON.parse(saved);
+        console.log("✅ Found saved form from:", data.savedAt);
+        return data;
+    }
+    console.log("ℹ️ No saved form data found");
+    return null;
+}
+
+const formData = {
+    name: "John Doe",
+    email: "john@example.com",
+    message: "This is a draft message..."
+};
+
+saveFormData(formData);
+const restoredForm = loadFormData();
+if (restoredForm) {
+    console.log("Restored form data:", restoredForm);
+}
+
+// Cleanup demonstration
+console.log("\\n--- Storage Cleanup ---");
+console.log("Before cleanup:");
+showAllItems();
+
+console.log("\\nClearing all storage...");
+clear();
+
+console.log("After cleanup:");
+showAllItems();
+
+console.log("\\n💾 Local Storage Complete!");
+console.log("Note: In a real browser, this data would persist between page reloads and browser sessions.");`
+            },     
+       11: {
+                title: "Async JavaScript",
+                duration: "40 min",
+                difficulty: "Advanced",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Asynchronous JavaScript</h2>
+                        <p>Async JavaScript allows code to run without blocking the main thread.</p>
+                        
+                        <h3>Async Concepts:</h3>
+                        <ul>
+                            <li><code>setTimeout()</code> - Delay execution</li>
+                            <li><code>Promises</code> - Handle async operations</li>
+                            <li><code>async/await</code> - Modern async syntax</li>
+                            <li><code>fetch()</code> - Make HTTP requests</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// Async JavaScript Demo
+console.log("=== ASYNC JAVASCRIPT ===");
+
+// setTimeout basics
+console.log("\\n--- setTimeout Basics ---");
+console.log("🚀 Starting setTimeout demo...");
+console.log("⏱️ This message appears immediately");
+
+// Note: In console, you'll see these messages in order, but with delays
+setTimeout(() => {
+    console.log("⏰ This message appears after 1 second");
+}, 1000);
+
+setTimeout(() => {
+    console.log("⏰ This message appears after 2 seconds");
+}, 2000);
+
+console.log("📝 This message also appears immediately (non-blocking)");
+
+// Multiple timeouts
+console.log("\\n--- Multiple Timeouts ---");
+console.log("Setting up multiple timeouts...");
+
+setTimeout(() => console.log("🥇 First timeout (500ms)"), 500);
+setTimeout(() => console.log("🥈 Second timeout (1000ms)"), 1000);
+setTimeout(() => console.log("🥉 Third timeout (1500ms)"), 1500);
+
+// Promises
+console.log("\\n--- Promises ---");
+console.log("Creating and using promises...");
+
+// Simple promise
+const simplePromise = new Promise((resolve, reject) => {
+    const success = Math.random() > 0.3; // 70% success rate
+    setTimeout(() => {
+        if (success) {
+            resolve("✅ Promise resolved successfully!");
+        } else {
+            reject("❌ Promise was rejected");
+        }
+    }, 1000);
+});
+
+console.log("🤝 Promise created, waiting for result...");
+
+simplePromise
+    .then(result => {
+        console.log("Success:", result);
+    })
+    .catch(error => {
+        console.log("Error:", error);
+    })
+    .finally(() => {
+        console.log("🏁 Promise completed (finally block)");
+    });
+
+// Promise chain
+console.log("\\n--- Promise Chain ---");
+console.log("🔗 Starting promise chain...");
+
+Promise.resolve(5)
+    .then(num => {
+        console.log("🔢 Starting with number:", num);
+        return num * 2;
+    })
+    .then(num => {
+        console.log("✖️ Multiplied by 2:", num);
+        return num + 10;
+    })
+    .then(num => {
+        console.log("➕ Added 10:", num);
+        return num;
+    })
+    .then(finalResult => {
+        console.log("🎯 Final result:", finalResult);
+    })
+    .catch(error => {
+        console.log("❌ Chain error:", error);
+    });
+
+// Creating utility functions for async operations
+console.log("\\n--- Async Utility Functions ---");
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function fetchUserData(userId) {
+    return new Promise((resolve, reject) => {
+        console.log("📡 Fetching user data for ID:", userId);
+        setTimeout(() => {
+            if (userId > 0) {
+                resolve({
+                    id: userId,
+                    name: "User " + userId,
+                    email: "user" + userId + "@example.com",
+                    createdAt: new Date().toISOString()
+                });
+            } else {
+                reject("Invalid user ID");
+            }
+        }, 800);
+    });
+}
+
+function processUserData(userData) {
+    return new Promise(resolve => {
+        console.log("⚙️ Processing user data...");
+        setTimeout(() => {
+            resolve({
+                ...userData,
+                processed: true,
+                processedAt: new Date().toISOString()
+            });
+        }, 500);
+    });
+}
+
+// Using promises with utility functions
+console.log("\\n--- Using Promise Utilities ---");
+fetchUserData(123)
+    .then(userData => {
+        console.log("✅ User data received:", userData);
+        return processUserData(userData);
+    })
+    .then(processedData => {
+        console.log("✅ User data processed:", processedData);
+    })
+    .catch(error => {
+        console.log("❌ Error in user data flow:", error);
+    });
+
+// Async/Await
+console.log("\\n--- Async/Await ---");
+
+async function asyncDemo() {
+    try {
+        console.log("🔄 Starting async/await demo...");
+        
+        console.log("👤 Fetching user data...");
+        const user = await fetchUserData(456);
+        console.log("✅ User data received:", user);
+        
+        console.log("⏳ Waiting 1 second...");
+        await delay(1000);
+        console.log("✅ Wait completed!");
+        
+        console.log("⚙️ Processing user data...");
+        const processed = await processUserData(user);
+        console.log("✅ Processing completed:", processed);
+        
+        return processed;
+        
+    } catch (error) {
+        console.log("❌ Error in async function:", error);
+        return null;
+    }
+}
+
+// Call async function
+asyncDemo().then(result => {
+    console.log("🏁 Async demo completed with result:", result);
+});
+
+// Promise.all
+console.log("\\n--- Promise.all ---");
+console.log("🔄 Running multiple promises in parallel...");
+
+const promise1 = delay(1000).then(() => "Task 1 complete");
+const promise2 = delay(1500).then(() => "Task 2 complete");
+const promise3 = delay(800).then(() => "Task 3 complete");
+
+Promise.all([promise1, promise2, promise3])
+    .then(results => {
+        console.log("✅ All tasks completed:", results);
+    })
+    .catch(error => {
+        console.log("❌ One or more tasks failed:", error);
+    });
+
+// Promise.race
+console.log("\\n--- Promise.race ---");
+console.log("🏃 Racing promises (first one wins)...");
+
+const fastPromise = delay(500).then(() => "Fast promise won!");
+const slowPromise = delay(2000).then(() => "Slow promise won!");
+
+Promise.race([fastPromise, slowPromise])
+    .then(winner => {
+        console.log("🏆 Race winner:", winner);
+    });
+
+// Simulated API calls
+console.log("\\n--- Simulated API Calls ---");
+
+function simulateAPICall(endpoint, delay_ms = 1000) {
+    return new Promise((resolve, reject) => {
+        console.log("📡 API call to:", endpoint);
+        setTimeout(() => {
+            const success = Math.random() > 0.2; // 80% success rate
+            if (success) {
+                resolve({
+                    endpoint: endpoint,
+                    data: "Sample data from " + endpoint,
+                    timestamp: new Date().toISOString(),
+                    status: 200
+                });
+            } else {
+                reject({
+                    endpoint: endpoint,
+                    error: "Network error",
+                    status: 500
+                });
+            }
+        }, delay_ms);
+    });
+}
+
+// Sequential API calls
+async function sequentialAPICalls() {
+    console.log("🔄 Making sequential API calls...");
+    try {
+        const users = await simulateAPICall("/api/users", 800);
+        console.log("✅ Users fetched:", users.data);
+        
+        const posts = await simulateAPICall("/api/posts", 600);
+        console.log("✅ Posts fetched:", posts.data);
+        
+        const comments = await simulateAPICall("/api/comments", 400);
+        console.log("✅ Comments fetched:", comments.data);
+        
+        console.log("🏁 All sequential API calls completed");
+    } catch (error) {
+        console.log("❌ Sequential API error:", error);
+    }
+}
+
+// Parallel API calls
+async function parallelAPICalls() {
+    console.log("🔄 Making parallel API calls...");
+    try {
+        const [users, posts, comments] = await Promise.all([
+            simulateAPICall("/api/users", 800),
+            simulateAPICall("/api/posts", 600),
+            simulateAPICall("/api/comments", 400)
+        ]);
+        
+        console.log("✅ All parallel API calls completed:");
+        console.log("  Users:", users.data);
+        console.log("  Posts:", posts.data);
+        console.log("  Comments:", comments.data);
+    } catch (error) {
+        console.log("❌ Parallel API error:", error);
+    }
+}
+
+// Run API demos
+sequentialAPICalls();
+setTimeout(() => parallelAPICalls(), 3000);
+
+// Error handling in async functions
+console.log("\\n--- Async Error Handling ---");
+
+async function errorHandlingDemo() {
+    console.log("🛡️ Demonstrating async error handling...");
+    
+    try {
+        // This will likely succeed
+        const result1 = await simulateAPICall("/api/reliable", 500);
+        console.log("✅ Reliable API succeeded:", result1.data);
+        
+        // This might fail
+        const result2 = await simulateAPICall("/api/unreliable", 500);
+        console.log("✅ Unreliable API succeeded:", result2.data);
+        
+    } catch (error) {
+        console.log("❌ Caught async error:", error.error, "Status:", error.status);
+        console.log("🔄 Could retry or show user-friendly message");
+    } finally {
+        console.log("🏁 Async error handling demo completed");
+    }
+}
+
+setTimeout(() => errorHandlingDemo(), 5000);
+
+// Async best practices
+console.log("\\n--- Async Best Practices ---");
+console.log("1. Always handle errors in async operations");
+console.log("2. Use Promise.all() for parallel operations");
+console.log("3. Avoid callback hell - use promises or async/await");
+console.log("4. Don't forget to await async operations");
+console.log("5. Use try/catch with async/await");
+console.log("6. Consider timeout handling for network requests");
+
+console.log("\\n⚡ Async JavaScript Demo Started!");
+console.log("Note: Watch the console for delayed messages as async operations complete.");`
+            },    
+        12: {
+                title: "Project: To-Do App",
+                duration: "60 min",
+                difficulty: "Advanced",
+                content: `
+                    <div class="lesson-section">
+                        <h2>Project: Build a To-Do App</h2>
+                        <p>Apply everything you have learned to build a complete to-do application.</p>
+                        
+                        <h3>Features:</h3>
+                        <ul>
+                            <li>Add new tasks</li>
+                            <li>Mark tasks as complete</li>
+                            <li>Delete tasks</li>
+                            <li>Save to local storage</li>
+                            <li>Filter tasks</li>
+                        </ul>
+                    </div>
+                `,
+                code: `// To-Do App Project - Console Implementation
+console.log("=== TO-DO APP PROJECT ===");
+
+// To-Do App Class
+class TodoApp {
+    constructor() {
+        this.todos = [];
+        this.nextId = 1;
+        this.filter = 'all'; // 'all', 'active', 'completed'
+        console.log("📝 To-Do App initialized!");
+    }
+
+    // Add a new todo
+    addTodo(text) {
+        if (!text || text.trim().length === 0) {
+            console.log("❌ Cannot add empty todo");
+            return false;
+        }
+
+        const todo = {
+            id: this.nextId++,
+            text: text.trim(),
+            completed: false,
+            createdAt: new Date().toISOString()
+        };
+
+        this.todos.push(todo);
+        console.log("✅ Added todo:", todo.text);
+        this.saveTodos();
+        return true;
+    }
+
+    // Toggle todo completion
+    toggleTodo(id) {
+        const todo = this.todos.find(t => t.id === id);
+        if (todo) {
+            todo.completed = !todo.completed;
+            const status = todo.completed ? "completed" : "active";
+            console.log("🔄 Todo " + id + " marked as " + status + ":", todo.text);
+            this.saveTodos();
+            return true;
+        }
+        console.log("❌ Todo not found:", id);
+        return false;
+    }
+
+    // Delete a todo
+    deleteTodo(id) {
+        const index = this.todos.findIndex(t => t.id === id);
+        if (index !== -1) {
+            const deleted = this.todos.splice(index, 1)[0];
+            console.log("🗑️ Deleted todo:", deleted.text);
+            this.saveTodos();
+            return true;
+        }
+        console.log("❌ Todo not found:", id);
+        return false;
+    }
+
+    // Edit a todo
+    editTodo(id, newText) {
+        const todo = this.todos.find(t => t.id === id);
+        if (todo && newText && newText.trim().length > 0) {
+            const oldText = todo.text;
+            todo.text = newText.trim();
+            console.log("✏️ Edited todo " + id + ":");
+            console.log("  Old: " + oldText);
+            console.log("  New: " + todo.text);
+            this.saveTodos();
+            return true;
+        }
+        console.log("❌ Cannot edit todo:", id);
+        return false;
+    }
+
+    // Get filtered todos
+    getFilteredTodos() {
+        switch (this.filter) {
+            case 'active':
+                return this.todos.filter(todo => !todo.completed);
+            case 'completed':
+                return this.todos.filter(todo => todo.completed);
+            default:
+                return this.todos;
+        }
+    }
+
+    // Set filter
+    setFilter(filter) {
+        if (['all', 'active', 'completed'].includes(filter)) {
+            this.filter = filter;
+            console.log("🔍 Filter set to:", filter);
+            this.displayTodos();
+        } else {
+            console.log("❌ Invalid filter:", filter);
+        }
+    }
+
+    // Display todos
+    displayTodos() {
+        const filtered = this.getFilteredTodos();
+        console.log("\\n📋 TO-DO LIST (" + this.filter.toUpperCase() + " FILTER)");
+        console.log("=".repeat(50));
+
+        if (filtered.length === 0) {
+            console.log("📭 No todos to display");
+        } else {
+            filtered.forEach(todo => {
+                const status = todo.completed ? "✅" : "⭕";
+                const text = todo.completed ? "~~" + todo.text + "~~" : todo.text;
+                console.log(status + " [" + todo.id + "] " + text);
+            });
+        }
+
+        this.displayStats();
+    }
+
+    // Display statistics
+    displayStats() {
+        const total = this.todos.length;
+        const completed = this.todos.filter(t => t.completed).length;
+        const active = total - completed;
+
+        console.log("\\n📊 STATISTICS:");
+        console.log("Total: " + total + " | Active: " + active + " | Completed: " + completed);
+        
+        if (total > 0) {
+            const percentage = Math.round((completed / total) * 100);
+            console.log("Progress: " + percentage + "% complete");
+        }
+    }
+
+    // Clear completed todos
+    clearCompleted() {
+        const completedCount = this.todos.filter(t => t.completed).length;
+        this.todos = this.todos.filter(t => !t.completed);
+        console.log("🧹 Cleared " + completedCount + " completed todos");
+        this.saveTodos();
+    }
+
+    // Save todos to simulated storage
+    saveTodos() {
+        // In a real app, this would use localStorage
+        console.log("💾 Todos saved to storage");
+    }
+
+    // Load todos from simulated storage
+    loadTodos() {
+        // In a real app, this would load from localStorage
+        console.log("📂 Todos loaded from storage");
+    }
+
+    // Search todos
+    searchTodos(query) {
+        if (!query || query.trim().length === 0) {
+            console.log("❌ Please provide a search query");
+            return [];
+        }
+
+        const results = this.todos.filter(todo => 
+            todo.text.toLowerCase().includes(query.toLowerCase())
+        );
+
+        console.log("🔍 Search results for '" + query + "':");
+        if (results.length === 0) {
+            console.log("📭 No todos found");
+        } else {
+            results.forEach(todo => {
+                const status = todo.completed ? "✅" : "⭕";
+                console.log(status + " [" + todo.id + "] " + todo.text);
+            });
+        }
+
+        return results;
+    }
+
+    // Get todo by ID
+    getTodo(id) {
+        return this.todos.find(t => t.id === id);
+    }
+
+    // Mark all todos as complete/incomplete
+    toggleAll() {
+        const allCompleted = this.todos.every(t => t.completed);
+        const newStatus = !allCompleted;
+        
+        this.todos.forEach(todo => {
+            todo.completed = newStatus;
+        });
+
+        const action = newStatus ? "completed" : "active";
+        console.log("🔄 All todos marked as " + action);
+        this.saveTodos();
+    }
+}
+
+// Demo the To-Do App
+console.log("\\n--- TO-DO APP DEMO ---");
+
+// Create app instance
+const todoApp = new TodoApp();
+
+// Add some todos
+console.log("\\n1. Adding todos...");
+todoApp.addTodo("Learn JavaScript fundamentals");
+todoApp.addTodo("Build a to-do app");
+todoApp.addTodo("Practice async programming");
+todoApp.addTodo("Study DOM manipulation");
+todoApp.addTodo("Master error handling");
+
+// Display all todos
+todoApp.displayTodos();
+
+// Mark some todos as complete
+console.log("\\n2. Completing some todos...");
+todoApp.toggleTodo(1);
+todoApp.toggleTodo(3);
+
+// Display updated list
+todoApp.displayTodos();
+
+// Filter todos
+console.log("\\n3. Filtering todos...");
+todoApp.setFilter('active');
+todoApp.setFilter('completed');
+todoApp.setFilter('all');
+
+// Edit a todo
+console.log("\\n4. Editing a todo...");
+todoApp.editTodo(2, "Build an awesome to-do app with JavaScript");
+
+// Search todos
+console.log("\\n5. Searching todos...");
+todoApp.searchTodos("JavaScript");
+todoApp.searchTodos("app");
+
+// Add more todos
+console.log("\\n6. Adding more todos...");
+todoApp.addTodo("Write unit tests");
+todoApp.addTodo("Deploy to production");
+todoApp.addTodo("Celebrate completion");
+
+// Toggle all todos
+console.log("\\n7. Toggle all todos...");
+todoApp.toggleAll();
+todoApp.displayTodos();
+
+todoApp.toggleAll(); // Toggle back
+todoApp.displayTodos();
+
+// Delete a todo
+console.log("\\n8. Deleting a todo...");
+todoApp.deleteTodo(4);
+todoApp.displayTodos();
+
+// Clear completed todos
+console.log("\\n9. Clearing completed todos...");
+todoApp.clearCompleted();
+todoApp.displayTodos();
+
+// Final demonstration
+console.log("\\n10. Final demonstration...");
+todoApp.addTodo("Review the to-do app code");
+todoApp.addTodo("Understand the implementation");
+todoApp.toggleTodo(todoApp.todos[todoApp.todos.length - 1].id);
+todoApp.displayTodos();
+
+// App usage instructions
+console.log("\\n--- TO-DO APP USAGE ---");
+console.log("Available methods:");
+console.log("• todoApp.addTodo(text) - Add a new todo");
+console.log("• todoApp.toggleTodo(id) - Toggle completion status");
+console.log("• todoApp.deleteTodo(id) - Delete a todo");
+console.log("• todoApp.editTodo(id, newText) - Edit todo text");
+console.log("• todoApp.setFilter(filter) - Set filter ('all', 'active', 'completed')");
+console.log("• todoApp.displayTodos() - Show current todos");
+console.log("• todoApp.searchTodos(query) - Search todos");
+console.log("• todoApp.clearCompleted() - Remove completed todos");
+console.log("• todoApp.toggleAll() - Toggle all todos");
+
+console.log("\\n🎉 TO-DO APP PROJECT COMPLETE!");
+console.log("You can interact with the todoApp object in the console!");
+
+// Export for console interaction
+if (typeof window !== 'undefined') {
+    window.todoApp = todoApp;
+    console.log("\\n💡 Try: todoApp.addTodo('Your custom task')");
+}`
+            }
+        };
+
+        // Initialize course
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCourse('js', jsLessons, 12);
+        });
+    </script>
+</body>
+</html>

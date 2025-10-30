@@ -7,9 +7,9 @@ class CourseManager {
         this.currentLesson = 1;
         
         this.initializeElements();
+        this.bindEvents();
         this.loadLesson(1);
         this.updateProgress();
-        this.bindEvents();
     }
 
     initializeElements() {
@@ -27,32 +27,47 @@ class CourseManager {
 
     bindEvents() {
         // Code execution
-        this.runCodeBtn?.addEventListener('click', () => this.runCode());
+        if (this.runCodeBtn) {
+            this.runCodeBtn.addEventListener('click', () => this.runCode());
+        }
         
         // Navigation
-        this.prevBtn?.addEventListener('click', () => this.previousLesson());
-        this.nextBtn?.addEventListener('click', () => this.nextLesson());
-        this.completeBtn?.addEventListener('click', () => this.completeLesson());
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.previousLesson());
+        }
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.nextLesson());
+        }
+        if (this.completeBtn) {
+            this.completeBtn.addEventListener('click', () => this.completeLesson());
+        }
         
         // Sidebar navigation
         document.querySelectorAll('.lesson-item').forEach(item => {
             item.addEventListener('click', (e) => {
+                e.preventDefault();
                 const lessonNum = parseInt(e.currentTarget.dataset.lesson);
-                this.loadLesson(lessonNum);
+                if (lessonNum && this.lessons[lessonNum]) {
+                    this.loadLesson(lessonNum);
+                }
             });
         });
 
         // Mobile sidebar toggle
-        this.sidebarToggle?.addEventListener('click', () => {
-            this.sidebar?.classList.toggle('active');
-        });
+        if (this.sidebarToggle && this.sidebar) {
+            this.sidebarToggle.addEventListener('click', () => {
+                this.sidebar.classList.toggle('active');
+            });
+        }
 
         // Auto-run code on input (with debounce)
-        let timeout;
-        this.codeInput?.addEventListener('input', () => {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => this.runCode(), 1000);
-        });
+        if (this.codeInput) {
+            let timeout;
+            this.codeInput.addEventListener('input', () => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => this.runCode(), 1000);
+            });
+        }
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
@@ -76,15 +91,24 @@ class CourseManager {
     }
 
     loadLesson(lessonNum) {
-        if (!this.lessons[lessonNum]) return;
+        if (!this.lessons[lessonNum]) {
+            console.error('Lesson not found:', lessonNum);
+            return;
+        }
 
         this.currentLesson = lessonNum;
         const lesson = this.lessons[lessonNum];
 
         // Update content
-        this.lessonTitle.textContent = lesson.title;
-        this.lessonBody.innerHTML = lesson.content;
-        this.codeInput.value = lesson.code;
+        if (this.lessonTitle) {
+            this.lessonTitle.textContent = lesson.title;
+        }
+        if (this.lessonBody) {
+            this.lessonBody.innerHTML = lesson.content;
+        }
+        if (this.codeInput) {
+            this.codeInput.value = lesson.code;
+        }
 
         // Update lesson meta
         const duration = document.querySelector('.lesson-duration');
@@ -98,11 +122,11 @@ class CourseManager {
         // Update navigation buttons
         this.updateNavigationButtons();
         
-        // Run code automatically
-        this.runCode();
-        
         // Update completion status
         this.updateCompleteButton();
+
+        // Run code automatically
+        setTimeout(() => this.runCode(), 200);
 
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -118,11 +142,17 @@ class CourseManager {
     }
 
     updateNavigationButtons() {
-        this.prevBtn.disabled = this.currentLesson === 1;
-        this.nextBtn.disabled = this.currentLesson === this.totalLessons;
+        if (this.prevBtn) {
+            this.prevBtn.disabled = this.currentLesson === 1;
+        }
+        if (this.nextBtn) {
+            this.nextBtn.disabled = this.currentLesson === this.totalLessons;
+        }
     }
 
     updateCompleteButton() {
+        if (!this.completeBtn) return;
+        
         const isCompleted = window.progressTracker.isLessonComplete(this.courseType, this.currentLesson);
         this.completeBtn.textContent = isCompleted ? 'Completed ✓' : 'Mark as Complete';
         this.completeBtn.classList.toggle('completed', isCompleted);
@@ -132,19 +162,142 @@ class CourseManager {
         if (!this.codeInput || !this.outputFrame) return;
 
         const code = this.codeInput.value;
-        const doc = this.outputFrame.contentDocument || this.outputFrame.contentWindow.document;
         
         try {
-            doc.open();
-            doc.write(code);
-            doc.close();
+            const doc = this.outputFrame.contentDocument || this.outputFrame.contentWindow.document;
+            
+            if (this.courseType === 'js') {
+                // JavaScript course - capture console output
+                const htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 15px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .output-line {
+            margin: 2px 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .error {
+            color: #f48771;
+            background: rgba(244, 135, 113, 0.1);
+            padding: 5px;
+            border-left: 3px solid #f48771;
+            margin: 5px 0;
+        }
+        .log {
+            color: #d4d4d4;
+        }
+        .warn {
+            color: #ffcc02;
+        }
+        .info {
+            color: #75beff;
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        (function() {
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+            
+            // Capture console methods
+            const originalConsole = {
+                log: console.log,
+                error: console.error,
+                warn: console.warn,
+                info: console.info
+            };
+            
+            function addOutput(message, type = 'log') {
+                const div = document.createElement('div');
+                div.className = 'output-line ' + type;
+                
+                // Handle different types of values
+                if (typeof message === 'object' && message !== null) {
+                    try {
+                        div.textContent = JSON.stringify(message, null, 2);
+                    } catch (e) {
+                        div.textContent = String(message);
+                    }
+                } else {
+                    div.textContent = String(message);
+                }
+                
+                output.appendChild(div);
+            }
+            
+            // Override console methods
+            console.log = function(...args) {
+                args.forEach(arg => addOutput(arg, 'log'));
+                originalConsole.log.apply(console, args);
+            };
+            
+            console.error = function(...args) {
+                args.forEach(arg => addOutput(arg, 'error'));
+                originalConsole.error.apply(console, args);
+            };
+            
+            console.warn = function(...args) {
+                args.forEach(arg => addOutput(arg, 'warn'));
+                originalConsole.warn.apply(console, args);
+            };
+            
+            console.info = function(...args) {
+                args.forEach(arg => addOutput(arg, 'info'));
+                originalConsole.info.apply(console, args);
+            };
+            
+            // Handle errors
+            window.onerror = function(message, source, lineno, colno, error) {
+                addOutput('Error: ' + message + ' (Line: ' + lineno + ')', 'error');
+                return true;
+            };
+            
+            // Execute user code
+            try {
+                ${code}
+            } catch (error) {
+                addOutput('Error: ' + error.message, 'error');
+            }
+        })();
+    </script>
+</body>
+</html>`;
+
+                doc.open();
+                doc.write(htmlContent);
+                doc.close();
+            } else {
+                // HTML/CSS courses - render directly
+                doc.open();
+                doc.write(code);
+                doc.close();
+            }
         } catch (error) {
-            doc.open();
-            doc.write(`<div style="color: red; padding: 20px; font-family: Arial;">
-                <h3>Error:</h3>
-                <p>${error.message}</p>
-            </div>`);
-            doc.close();
+            console.error('Error running code:', error);
+            try {
+                const doc = this.outputFrame.contentDocument || this.outputFrame.contentWindow.document;
+                doc.open();
+                doc.write(`<div style="color: red; padding: 20px; font-family: Arial;">
+                    <h3>Error:</h3>
+                    <p>${error.message}</p>
+                </div>`);
+                doc.close();
+            } catch (e) {
+                console.error('Failed to display error:', e);
+            }
         }
     }
 
@@ -169,7 +322,9 @@ class CourseManager {
             this.updateProgress();
             this.updateSidebarStatus();
             
-            window.showNotification(`Lesson ${this.currentLesson} completed! 🎉`, 'success');
+            if (window.showNotification) {
+                window.showNotification(`Lesson ${this.currentLesson} completed! 🎉`, 'success');
+            }
             
             // Auto-advance to next lesson after a delay
             if (this.currentLesson < this.totalLessons) {
@@ -181,7 +336,9 @@ class CourseManager {
             } else {
                 // Course completed
                 setTimeout(() => {
-                    window.showNotification(`Congratulations! You completed the ${this.courseType.toUpperCase()} course! 🏆`, 'success');
+                    if (window.showNotification) {
+                        window.showNotification(`Congratulations! You completed the ${this.courseType.toUpperCase()} course! 🏆`, 'success');
+                    }
                 }, 1500);
             }
         }
@@ -217,6 +374,12 @@ class CourseManager {
 
 // Initialize course function
 function initializeCourse(courseType, lessons, totalLessons) {
+    // Ensure progressTracker exists
+    if (!window.progressTracker) {
+        console.error('Progress tracker not found');
+        return;
+    }
+    
     // Set total lessons in progress tracker
     window.progressTracker.setCourseTotalLessons(courseType, totalLessons);
     
@@ -309,20 +472,6 @@ function addLineNumbers() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeCodeEditor();
 });
-
-// Debug function to check line numbers
-function debugLineNumbers() {
-    const codeInput = document.getElementById('code-input');
-    const lineNumbers = document.querySelector('.line-numbers');
-    
-    if (codeInput && lineNumbers) {
-        console.log('Code input lines:', codeInput.value.split('\n').length);
-        console.log('Line numbers content:', lineNumbers.textContent);
-        console.log('Line numbers element:', lineNumbers);
-    } else {
-        console.log('Elements not found:', { codeInput: !!codeInput, lineNumbers: !!lineNumbers });
-    }
-}
 
 // Export for global use
 window.initializeCourse = initializeCourse;

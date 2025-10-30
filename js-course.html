@@ -96,6 +96,7 @@
                     </li>
                     <li class="lesson-item" data-lesson="8">
                         <span class="lesson-number">8</span>
+                        <span class="lesson-title">Loops & Iteration</span>
                         <span class="lesson-status"></span>
                     </li>
                     <li class="lesson-item" data-lesson="9">
@@ -234,8 +235,8 @@ console.log("JavaScript".length);
 console.log("JAVASCRIPT".toLowerCase());
 
 console.log("\\n🎉 JavaScript Introduction Complete!");`
-            }, 
-           2: {
+            },
+            2: {
                 title: "Variables & Data Types",
                 duration: "20 min",
                 difficulty: "Beginner",
@@ -312,8 +313,8 @@ console.log("Person name:", person.name);
 console.log("Person age:", person.age);
 
 console.log("\\n✅ Variables & Data Types Complete!");`
-            },        
-    3: {
+            },
+            3: {
                 title: "Functions",
                 duration: "25 min",
                 difficulty: "Beginner",
@@ -390,8 +391,8 @@ let result = sayHello();
 console.log("Function result:", result);
 
 console.log("\\n⚡ Functions Complete!");`
-            },           
- 4: {
+            },
+            4: {
                 title: "Control Flow",
                 duration: "30 min",
                 difficulty: "Beginner",
@@ -489,8 +490,8 @@ console.log("isLoggedIn || hasPermission:", isLoggedIn || hasPermission);
 console.log("!isLoggedIn:", !isLoggedIn);
 
 console.log("\\n🔀 Control Flow Complete!");`
-            },          
-  5: {
+            },
+            5: {
                 title: "Arrays & Objects",
                 duration: "35 min",
                 difficulty: "Intermediate",
@@ -627,8 +628,8 @@ library.addBook("Advanced JavaScript", "Sarah Connor", 2024);
 console.log("After adding new book, total:", library.getBookCount());
 
 console.log("\\n📊 Arrays & Objects Complete!");`
-            },     
-       6: {
+            },
+            6: {
                 title: "DOM Manipulation",
                 duration: "40 min",
                 difficulty: "Intermediate",
@@ -736,8 +737,8 @@ validateForm(invalidForm);
 
 console.log("\\n🎯 DOM Manipulation Complete!");
 console.log("Note: In a real webpage, these methods would interact with actual HTML elements.");`
-            }, 
-           7: {
+            },
+            7: {
                 title: "Event Handling",
                 duration: "35 min",
                 difficulty: "Intermediate",
@@ -889,8 +890,8 @@ function simulateEventFlow(eventType) {
 simulateEventFlow("click");
 
 console.log("\\n🎮 Event Handling Complete!");`
-            },           
- 8: {
+            },
+            8: {
                 title: "Loops & Iteration",
                 duration: "30 min",
                 difficulty: "Beginner",
@@ -1075,8 +1076,8 @@ for (let i = 1; i <= 10; i++) {
 }
 
 console.log("\\n🔄 Loops & Iteration Complete!");`
-            },    
-        9: {
+            },
+            9: {
                 title: "Error Handling",
                 duration: "25 min",
                 difficulty: "Intermediate",
@@ -1275,8 +1276,8 @@ console.log("Result:", processUserInput(123));
 console.log("Result:", processUserInput(""));
 
 console.log("\\n🛡️ Error Handling Complete!");`
-            },        
-    10: {
+            },
+            10: {
                 title: "Local Storage",
                 duration: "30 min",
                 difficulty: "Intermediate",
@@ -1539,8 +1540,8 @@ showAllItems();
 
 console.log("\\n💾 Local Storage Complete!");
 console.log("Note: In a real browser, this data would persist between page reloads and browser sessions.");`
-            },     
-       11: {
+            },
+            11: {
                 title: "Async JavaScript",
                 duration: "40 min",
                 difficulty: "Advanced",
@@ -1854,8 +1855,8 @@ console.log("6. Consider timeout handling for network requests");
 
 console.log("\\n⚡ Async JavaScript Demo Started!");
 console.log("Note: Watch the console for delayed messages as async operations complete.");`
-            },    
-        12: {
+            },
+            12: {
                 title: "Project: To-Do App",
                 duration: "60 min",
                 difficulty: "Advanced",
@@ -2167,7 +2168,10 @@ if (typeof window !== 'undefined') {
 
         // Initialize course
         document.addEventListener('DOMContentLoaded', () => {
-            initializeCourse('js', jsLessons, 12);
+            // Add a small delay to ensure all scripts are loaded
+            setTimeout(() => {
+                initializeCourse('js', jsLessons, 12);
+            }, 100);
         });
     </script>
 </body>
